@@ -1,0 +1,11 @@
+{
+  "retry": "Retry",
+  "@retry": {
+    "description": "For retrying an action"
+  },
+  "updated": "Updated",
+  "bank"   : "Bank",
+  "banks"  : "Banks",
+  "dollar" : "Dollar",
+  "menu"   : "Menu"
+}
