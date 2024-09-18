@@ -1,12 +1,13 @@
 {
-  "retry"     : "Intentar nuevamente",
-  "updated"   : "Última actualización",
-  "bank"      : "Banco",
-  "banks"     : "Bancos",
-  "dollar"    : "Dolar",
-  "menu"      : "Menú",
-  "language"  : "Idioma",
-  "sale"      : "Venta",
-  "purchase"  : "Compra"
+  "retry"       : "Intentar nuevamente",
+  "updated"     : "Última actualización",
+  "bank"        : "Banco",
+  "banks"       : "Bancos",
+  "dollar"      : "Dolar",
+  "menu"        : "Menú",
+  "language"    : "Idioma",
+  "sale"        : "Venta",
+  "purchase"    : "Compra",
+  "description" : "Descripción"
 
 }

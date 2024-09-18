@@ -1,6 +1,7 @@
 import 'package:pocketbase/pocketbase.dart';
 
 import '../../../../core/error/exceptions.dart';
+import '../../../../core/http/pocketbase_options.dart';
 import '../models/bank_model.dart';
 import '../models/bank_restriction_model.dart';
 
@@ -19,11 +20,11 @@ class BankRemoteDatasourceImpl implements BankRemoteDatasource{
 
 
   @override
-Future<List<BankModel>> getBanks() async {
+  Future<List<BankModel>> getBanks() async {
     try{
       final response = await _pb.collection('bank').getList(
-        expand: 'data_source',
-        fields: 'id,name,created,icon,code,url,expand.data_source.name,expand.data_source.url'
+          expand: 'data_source',
+          fields: 'id,name,created,icon,code,url,expand.data_source.name,expand.data_source.url'
       );
       return response.items.map((e) => BankModel.fromRecordModel(e)).toList();
     }on ClientException{
@@ -35,7 +36,9 @@ Future<List<BankModel>> getBanks() async {
   @override
   Future<List<BankRestrictionModel>> getDebitCardsRestrictions() async {
     try{
-      final response = await _pb.collection('debit_card').getList();
+      final response = await _pb.collection('debit_card').getList(
+        headers: {'api-key' : PocketBaseOptions.apiKey}
+      );
       return response.items.map((e) => BankRestrictionModel.fromRecordModel(e)).toList();
     }on ClientException{
       throw NoInternetException();
