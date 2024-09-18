@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../core/extension/date_extensions.dart';
 import '../../../../core/resources/app_resources.dart';
+import '../../../home/presentation/widgets/updated_text.dart';
 import '../../../home/presentation/widgets/url_chip.dart';
 import '../../domain/entities/bank.dart';
 
@@ -32,7 +30,6 @@ class BankItem extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: bank.restrictions.length,
             itemBuilder: (_, i) => Card(
-              color: AppColors.accentBlack,
               child: ListTile(
                 title: Text(bank.restrictions[i].description,maxLines: 2,style: Theme.of(context).textTheme.titleSmall),
                 subtitle: Text(bank.restrictions[i].frequency),
@@ -41,7 +38,7 @@ class BankItem extends StatelessWidget {
             )
           ),
           if(bank.restrictions.isNotEmpty)
-            Text('${AppLocalizations.of(context)!.updated}: ${bank.restrictions.first.lastUpdate.toLocalString(context)}',style: Theme.of(context).textTheme.labelSmall)
+            UpdatedText(dateTime: bank.restrictions.first.lastUpdate)
         ],
       ),
     );

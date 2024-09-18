@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/bank/presentation/pages/bank_page.dart';
+import '../../features/dollar/presentation/pages/dollar_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/home/presentation/pages/menu_page.dart';
 import 'routes.dart';
@@ -25,6 +26,18 @@ class CustomRouter{
                   return CustomTransitionPage(
                     key: state.pageKey,
                     child: const BankPage(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+                        FadeTransition(opacity: animation, child: child),
+                  );
+                },
+
+              ),
+              GoRoute(
+                path: Routes.dollar,
+                pageBuilder: (context,state) {
+                  return CustomTransitionPage(
+                    key: state.pageKey,
+                    child: const DollarPage(),
                     transitionsBuilder: (context, animation, secondaryAnimation, child) =>
                         FadeTransition(opacity: animation, child: child),
                   );

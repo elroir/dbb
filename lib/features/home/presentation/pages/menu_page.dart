@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          ListTile(
+          const ListTile(
             title: Text('Preguntas frecuentes')
           ),
           ListTile(
-              title: Text('Idioma')
+              title: Text(AppLocalizations.of(context)!.language)
           )
         ],
       ),

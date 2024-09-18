@@ -31,6 +31,9 @@ class Themes {
         selectedItemColor: AppColors.secondaryColor,
         unselectedItemColor: AppColors.accentBlack,
       ),
+    cardTheme: const CardTheme(
+      color: AppColors.accentBlack
+    )
 
   );
 }

@@ -13,7 +13,6 @@ class BankPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<BankBloc, BankState>(
-
         builder: (context, state) {
           if(state is BankLoaded){
             return ListView.builder(

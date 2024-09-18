@@ -1,4 +1,4 @@
-# bol_sit
+# DBB
 
 Flutter project for showing info about bolivian situation
 

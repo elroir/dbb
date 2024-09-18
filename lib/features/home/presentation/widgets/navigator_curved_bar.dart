@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../core/router/router.dart';
 import '../../../../core/router/routes.dart';
 import '../bloc/nav_bar/nav_bar_cubit.dart';
-import '../bloc/url_launcher/url_bloc.dart';
 
 class NavigatorCurvedBar extends StatelessWidget {
   const NavigatorCurvedBar({super.key});
@@ -23,8 +22,7 @@ class NavigatorCurvedBar extends StatelessWidget {
             context.go(Routes.home);
           }
           if(state.currentIndex==1){
-            context.read<NavBarCubit>().updateIndex(0);
-            context.read<UrlBloc>().add(const LaunchUrl(link: 'https://www.dolarbo.com'));
+            context.go(Routes.dollar);
           }
           if(state.currentIndex==2){
             context.go(Routes.menu);
@@ -45,10 +43,10 @@ class NavigatorCurvedBar extends StatelessWidget {
                       icon: const Icon(IconsaxPlusBold.dollar_square),
                       label: AppLocalizations.of(context)!.dollar,
                   ),
-                  BottomNavigationBarItem(
-                    icon: const Icon(IconsaxPlusBold.menu),
-                    label: AppLocalizations.of(context)!.menu,
-                  ),
+                  // BottomNavigationBarItem(
+                  //   icon: const Icon(IconsaxPlusBold.menu),
+                  //   label: AppLocalizations.of(context)!.menu,
+                  // ),
                 ]
             ),
           );
