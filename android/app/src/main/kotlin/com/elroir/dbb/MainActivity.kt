@@ -1,4 +1,4 @@
-package com.elroir.bolSit.bol_sit
+package com.elroir.dbb
 
 import io.flutter.embedding.android.FlutterActivity
 
