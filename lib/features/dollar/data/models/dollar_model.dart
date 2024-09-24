@@ -10,6 +10,7 @@ class DollarModel extends Dollar{
     required super.sellPrice,
     required super.name,
     required super.description,
+    required super.canEdit,
     required super.lastUpdate
   });
 
@@ -20,6 +21,7 @@ class DollarModel extends Dollar{
       description: record.data['description_$languageCode'],
       buyPrice: record.data['buy_price']/1,
       sellPrice: record.data['sell_price']/1,
+      canEdit: record.data['user_editable'] ?? false,
       lastUpdate: DateTime.parse(record.created).toLocal()
 
     );

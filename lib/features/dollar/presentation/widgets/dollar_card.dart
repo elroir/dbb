@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 
 import '../../../../core/resources/app_resources.dart';
 import '../../../home/presentation/widgets/updated_text.dart';
 import '../../domain/entities/dollar.dart';
+import '../bloc/dollar_bloc.dart';
+import 'dollar_form.dart';
 import 'info_button.dart';
 import 'price_item.dart';
 
@@ -21,11 +25,24 @@ class DollarCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(dollar.name,style: Theme.of(context).textTheme.titleLarge,),
+                const SizedBox(width: 10),
                 if(dollar.description!='')
-                InfoButton(description: dollar.description)
+                InfoButton(description: dollar.description),
+                const Spacer(),
+                if(dollar.canEdit)
+                InkWell(
+                    onTap: () => showModalBottomSheet(
+                      context: context,
+                      useRootNavigator: true,
+                      builder: (_) => BlocProvider.value(
+                        value: context.read<DollarBloc>()..add(PickDollar(dollar: dollar)),
+                          child: const DollarForm()
+                      )
+                    ),
+                    child: const Icon(IconsaxPlusBold.add)
+                )
               ],
             ),
             Padding(

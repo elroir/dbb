@@ -1,7 +1,8 @@
 part of 'dollar_bloc.dart';
 
 sealed class DollarState extends Equatable {
-  const DollarState();
+  final Dollar? pickedDollar;
+  const DollarState({this.pickedDollar});
 }
 
 final class DollarInitial extends DollarState {
@@ -16,9 +17,9 @@ final class DollarLoading extends DollarState {
 final class DollarLoaded extends DollarState {
   final List<Dollar> dollars;
 
-  const DollarLoaded({required this.dollars});
+  const DollarLoaded({required this.dollars,super.pickedDollar});
   @override
-  List<Object> get props => [dollars];
+  List<Object?> get props => [dollars,pickedDollar];
 }
 
 final class DollarError extends DollarState {

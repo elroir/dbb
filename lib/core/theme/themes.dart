@@ -7,6 +7,7 @@ import '../resources/app_resources.dart';
 
 part 'text_theme.dart';
 part 'button_theme.dart';
+part 'input_theme.dart';
 
 class Themes {
 
@@ -18,7 +19,8 @@ class Themes {
         surface: AppColors.backgroundColor,
       ),
       brightness: Brightness.dark,
-      textTheme: TextThemeStyle.textTheme,
+      textTheme: TextThemeStyle.dark,
+      inputDecorationTheme: InputTheme.dark,
       elevatedButtonTheme: ButtonThemeStyle.elevatedButtonTheme,
       outlinedButtonTheme: ButtonThemeStyle.outlinedButtonDarkTheme,
       appBarTheme: const AppBarTheme(

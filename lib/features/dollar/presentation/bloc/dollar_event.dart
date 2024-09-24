@@ -12,3 +12,12 @@ final class GetDollars extends DollarEvent{
   List<Object?> get props => [languageCode];
 
 }
+
+final class PickDollar extends DollarEvent{
+  final Dollar? dollar;
+
+  const PickDollar({this.dollar});
+  @override
+  List<Object?> get props => [dollar];
+
+}

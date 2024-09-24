@@ -18,7 +18,7 @@ class DollarRemoteDatasourceImpl implements DollarRemoteDatasource{
   Future<List<DollarModel>> getLatestDollar({String languageCode = 'es'}) async {
     try{
       final response = await _pb.collection('dollar_latest').getList(
-          fields: 'id,buy_price,sell_price,name_$languageCode,description_$languageCode,created'
+          fields: 'id,buy_price,sell_price,name_$languageCode,description_$languageCode,created,user_editable'
       );
       return response.items.map((e) => DollarModel.fromRecordModel(e,languageCode)).toList();
     }on ClientException{

@@ -8,5 +8,6 @@ class AppBorder {
   static const double textFieldBorderRadius = 8.0;
   static const double buttonBorderRadius = 10.0;
   static const double logoBorderRadius = 35.0;
+  static const double inputBorder = 15.0;
 
 }

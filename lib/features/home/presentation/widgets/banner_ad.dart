@@ -18,7 +18,6 @@ class BannerAdWidget extends StatelessWidget {
               if (state is BannerAdLoaded) {
                 return SizedBox(
                     height: state.bannerAd.size.height.toDouble(),
-
                     child: AdWidget(ad: state.bannerAd)
                 );
               }

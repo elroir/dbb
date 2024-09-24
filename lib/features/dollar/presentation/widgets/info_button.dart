@@ -29,7 +29,7 @@ class InfoButton extends StatelessWidget {
                       IconButton(
                         visualDensity: VisualDensity.compact,
                         onPressed: () => context.pop(),
-                        icon: const Icon(IconsaxPlusBold.close_circle),
+                        icon: const Icon(IconsaxPlusBold.close_square),
                       )
                     ],
                   ),

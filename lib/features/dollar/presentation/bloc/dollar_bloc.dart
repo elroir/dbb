@@ -18,6 +18,14 @@ class DollarBloc extends Bloc<DollarEvent, DollarState> {
               (dollars) {
             emit(DollarLoaded(dollars: dollars));
           }
-      );    });
+      );
+    });
+
+    on<PickDollar>((event, emit) async {
+      final currentState= state;
+      if(currentState is DollarLoaded){
+        emit(DollarLoaded(pickedDollar: event.dollar,dollars: currentState.dollars));
+      }
+    });
   }
 }
