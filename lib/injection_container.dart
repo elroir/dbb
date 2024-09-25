@@ -12,6 +12,7 @@ import 'features/dollar/data/data_sources/dollar_remote_datasource.dart';
 import 'features/dollar/data/repositories/dollar_repository_impl.dart';
 import 'features/dollar/domain/repositories/dollar_repository.dart';
 import 'features/dollar/domain/use_cases/get_latest_dollars_use_case.dart';
+import 'features/dollar/domain/use_cases/save_dollar_use_case.dart';
 import 'features/home/data/repositories/url_launcher.dart';
 import 'features/home/domain/repositories/url_repository.dart';
 
@@ -35,6 +36,7 @@ void setup() {
     locator.registerLazySingleton<DollarRemoteDatasource>(() => DollarRemoteDatasourceImpl(pb: locator()));
     locator.registerLazySingleton<DollarRepository>(() => DollarRepositoryImpl(remoteDatasource: locator()));
     locator.registerLazySingleton<GetLatestDollar>(() => GetLatestDollar(dollarRepository: locator()));
+    locator.registerLazySingleton<SaveDollar>(() => SaveDollar(dollarRepository: locator()));
 
 
 }

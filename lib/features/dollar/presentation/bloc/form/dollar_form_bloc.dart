@@ -1,13 +1,48 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/extension/string_extensions.dart';
+import '../../../domain/entities/dollar.dart';
+import '../../../domain/use_cases/save_dollar_use_case.dart';
 
 part 'dollar_form_event.dart';
 part 'dollar_form_state.dart';
 
 class DollarFormBloc extends Bloc<DollarFormEvent, DollarFormState> {
-  DollarFormBloc() : super(DollarFormInitial()) {
-    on<DollarFormEvent>((event, emit) {
-      // TODO: implement event handler
+  final SaveDollar _saveDollar;
+  DollarFormBloc(this._saveDollar) : super(const DollarFormState()) {
+
+    on<ChangeSaleDollar>((event, emit) {
+      emit(state.copyWith(sellPrice: event.text,canSend: event.text!='' || state.buyPrice!=''));
     });
+
+    on<ChangePurchaseDollar>((event, emit) {
+      emit(state.copyWith(buyPrice: event.text,canSend: event.text!='' || state.sellPrice!=''));
+    });
+
+    on<SendDollar>((event, emit) async {
+
+      if(event.dollar==null) return;
+
+      double buyPrice = 0;
+      double sellPrice = 0;
+      if(state.buyPrice.isNumeric()){
+        buyPrice = double.parse(state.buyPrice);
+      }
+      if(state.sellPrice.isNumeric()){
+        sellPrice = double.parse(state.sellPrice);
+      }
+
+      final dollar = event.dollar!.copyWith(
+        buyPrice: buyPrice,
+        sellPrice: sellPrice
+      );
+
+      await _saveDollar(dollar: dollar);
+
+      emit(DollarFormSuccess());
+
+    });
+
   }
 }

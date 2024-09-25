@@ -22,7 +22,7 @@ class DollarBloc extends Bloc<DollarEvent, DollarState> {
     });
 
     on<PickDollar>((event, emit) async {
-      final currentState= state;
+      final currentState = state;
       if(currentState is DollarLoaded){
         emit(DollarLoaded(pickedDollar: event.dollar,dollars: currentState.dollars));
       }

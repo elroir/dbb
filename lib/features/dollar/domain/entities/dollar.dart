@@ -9,11 +9,27 @@ class Dollar {
 
   Dollar({
     required this.id,
-    required this.buyPrice,
-    required this.sellPrice,
-    required this.name,
-    required this.description,
+    this.buyPrice = 0,
+    this.sellPrice = 0,
+    this.name = '',
+    this.description = '',
     this.canEdit = false,
     required this.lastUpdate,
   });
+
+  Dollar copyWith({
+    double? buyPrice,
+    double? sellPrice,
+    String? name,
+    String? description,
+    bool? canEdit,
+  }) => Dollar(
+    id: id,
+    buyPrice: buyPrice ?? this.buyPrice,
+    sellPrice: sellPrice ?? this.sellPrice,
+    name: name ?? this.name,
+    description: description ?? this.description,
+    canEdit: canEdit ?? this.canEdit,
+    lastUpdate: lastUpdate,
+  );
 }

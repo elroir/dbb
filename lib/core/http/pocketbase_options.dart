@@ -12,7 +12,7 @@ class PocketBaseOptions{
 
   static const apiUrl = _devUrl;
 
-  static const apiKey = 'test';
+  static const apiKey = 'Th7NtmYQeYAn9K5q';
 
   static PocketBase get pb => PocketBase(apiUrl);
 

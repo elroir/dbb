@@ -8,11 +8,23 @@ class DollarModel extends Dollar{
     required super.id,
     required super.buyPrice,
     required super.sellPrice,
-    required super.name,
-    required super.description,
-    required super.canEdit,
+    super.name,
+    super.description,
+    super.canEdit,
     required super.lastUpdate
   });
+
+  factory DollarModel.fromEntity(Dollar dollar){
+    return DollarModel(
+        id: dollar.id,
+        name: dollar.name,
+        description: dollar.description,
+        buyPrice: dollar.buyPrice,
+        sellPrice: dollar.sellPrice,
+        canEdit: dollar.canEdit,
+        lastUpdate: dollar.lastUpdate
+    );
+  }
 
   factory DollarModel.fromRecordModel(RecordModel record,String languageCode){
     return DollarModel(
@@ -26,5 +38,13 @@ class DollarModel extends Dollar{
 
     );
   }
+
+  /// [dollar_type] is the same as dollar id as dollar_latest return last value of each type of dollar
+  Map<String,dynamic> toJson() => {
+    'buy_price' : buyPrice,
+    'sell_price' : sellPrice,
+    'dollar_type' : id,
+    'user_source' : 'user'
+  };
 
 }
