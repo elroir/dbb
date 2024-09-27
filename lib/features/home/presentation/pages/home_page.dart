@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
         title: const BannerAdWidget(),
       ),
       body: child,
+      extendBody: true,
       bottomNavigationBar: const NavigatorCurvedBar(),
     );
   }

@@ -6,18 +6,18 @@ sealed class DollarFormEvent extends Equatable {
 
 
 final class ChangePurchaseDollar extends DollarFormEvent{
-  final String? text;
+  final String text;
 
-  const ChangePurchaseDollar({this.text});
+  const ChangePurchaseDollar({this.text = ''});
   @override
   List<Object?> get props => [text];
 
 }
 
 final class ChangeSaleDollar extends DollarFormEvent{
-  final String? text;
+  final String text;
 
-  const ChangeSaleDollar({this.text});
+  const ChangeSaleDollar({this.text = ''});
   @override
   List<Object?> get props => [text];
 

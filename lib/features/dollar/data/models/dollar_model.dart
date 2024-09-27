@@ -8,6 +8,8 @@ class DollarModel extends Dollar{
     required super.id,
     required super.buyPrice,
     required super.sellPrice,
+    super.averageBuyPrice,
+    super.averageSellPrice,
     super.name,
     super.description,
     super.canEdit,
@@ -21,6 +23,8 @@ class DollarModel extends Dollar{
         description: dollar.description,
         buyPrice: dollar.buyPrice,
         sellPrice: dollar.sellPrice,
+        averageBuyPrice: dollar.averageBuyPrice,
+        averageSellPrice: dollar.averageSellPrice,
         canEdit: dollar.canEdit,
         lastUpdate: dollar.lastUpdate
     );
@@ -33,6 +37,8 @@ class DollarModel extends Dollar{
       description: record.data['description_$languageCode'],
       buyPrice: record.data['buy_price']/1,
       sellPrice: record.data['sell_price']/1,
+      averageBuyPrice: record.data['average_buy_price']/1,
+      averageSellPrice: record.data['average_sell_price']/1,
       canEdit: record.data['user_editable'] ?? false,
       lastUpdate: DateTime.parse(record.created).toLocal()
 

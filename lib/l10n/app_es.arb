@@ -4,10 +4,24 @@
   "bank"        : "Banco",
   "banks"       : "Bancos",
   "dollar"      : "Dolar",
-  "menu"        : "Menú",
-  "language"    : "Idioma",
-  "sale"        : "Venta",
-  "purchase"    : "Compra",
-  "description" : "Descripción"
+  "dollarType"  : "Dolar {name}",
+  "@dollarType" : {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Cripto"
+      }
+    }
+  },
+  "menu"              : "Menú",
+  "language"          : "Idioma",
+  "sale"              : "Venta",
+  "purchase"          : "Compra",
+  "description"       : "Descripción",
+  "send"              : "Enviar",
+  "saleHint"          : "Ingrese el precio de venta",
+  "purchaseHint"      : "Ingrese el precio de compra",
+  "dollarFormMessage" : "Para mantener la integridad de los datos, los valores no pueden ser muy diferentes a los mostrados por la aplicación",
+  "supportMessage"    : "Gracias por tu apoyo, datos enviados con éxito"
 
 }

@@ -34,6 +34,8 @@ class DollarRepositoryImpl implements DollarRepository{
 
     } on ServerException{
       return Left(ServerFailure());
+    } on NotFoundException{
+      return Left(NotFoundFailure());
     } on NoInternetException{
       return Left(SocketFailure());
     }

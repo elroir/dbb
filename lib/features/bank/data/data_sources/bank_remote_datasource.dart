@@ -23,6 +23,7 @@ class BankRemoteDatasourceImpl implements BankRemoteDatasource{
   Future<List<BankModel>> getBanks() async {
     try{
       final response = await _pb.collection('bank').getList(
+          headers: {'api-key' : PocketBaseOptions.apiKey},
           expand: 'data_source',
           fields: 'id,name,created,icon,code,url,expand.data_source.name,expand.data_source.url'
       );

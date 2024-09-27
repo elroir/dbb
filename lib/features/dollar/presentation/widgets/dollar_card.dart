@@ -36,6 +36,7 @@ class DollarCard extends StatelessWidget {
                     onTap: () => showModalBottomSheet(
                       context: context,
                       useRootNavigator: true,
+                      isScrollControlled: true,
                       builder: (_) => BlocProvider.value(
                         value: context.read<DollarBloc>()..add(PickDollar(dollar: dollar)),
                           child: const DollarForm()
@@ -51,8 +52,8 @@ class DollarCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   if(dollar.buyPrice!=0)
-                    PriceItem(price: dollar.buyPrice,),
-                  PriceItem(price: dollar.sellPrice,isPurchase: false,)
+                    PriceItem(price: dollar.canEdit ? dollar.averageBuyPrice : dollar.buyPrice,),
+                  PriceItem(price: dollar.canEdit ? dollar.averageSellPrice : dollar.sellPrice,isPurchase: false,)
                 ],
               ),
             ),

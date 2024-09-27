@@ -20,7 +20,8 @@ class DollarRemoteDatasourceImpl implements DollarRemoteDatasource{
   Future<List<DollarModel>> getLatestDollar({String languageCode = 'es'}) async {
     try{
       final response = await _pb.collection('dollar_latest').getList(
-          fields: 'id,buy_price,sell_price,name_$languageCode,description_$languageCode,created,user_editable'
+          headers: {'api-key' : PocketBaseOptions.apiKey},
+          fields: 'id,buy_price,sell_price,average_buy_price,average_sell_price,name_$languageCode,description_$languageCode,created,user_editable'
       );
       return response.items.map((e) => DollarModel.fromRecordModel(e,languageCode)).toList();
     }on ClientException{
@@ -35,7 +36,10 @@ class DollarRemoteDatasourceImpl implements DollarRemoteDatasource{
           headers: {'api-key' : PocketBaseOptions.apiKey},
           body: dollar.toJson()
       );
-    }on ClientException{
+    }on ClientException catch(e){
+      if(e.statusCode==404){
+        throw NotFoundException();
+      }
       throw NoInternetException();
     }
   }

@@ -11,7 +11,7 @@ class ErrorMessages{
 
   static const String cantLaunchUrlMessage   = 'No se puede abrir el enlace';
 
-  static const String galleryMessageError  = 'No se seleccionó una imagen';
+  static const String notFoundMessageError  = 'Recurso no encontrado';
 
   static const String userNullError  = 'No se encontraron datos de usuario';
 

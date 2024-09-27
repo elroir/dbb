@@ -1,15 +1,35 @@
 {
-  "retry": "Retry",
-  "@retry": {
-    "description": "For retrying an action"
-  },
+  "retry"       : "Retry",
   "updated"     : "Updated",
   "bank"        : "Bank",
   "banks"       : "Banks",
   "dollar"      : "Dollar",
+  "dollarType"  : "{name} Dollar",
+  "@dollarType" : {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Crypto"
+      }
+    }
+  },
   "menu"        : "Menu",
   "language"    : "Language",
-  "sale"        : "sale",
+  "sale"        : "Sale",
   "purchase"    : "Purchase",
-  "description" : "Description"
+  "description" : "Description",
+  "send"        : "Send",
+  "saleHint"    : "Enter sale price",
+  "@saleHint": {
+    "description": "Shown in text field hint text"
+  },
+  "purchaseHint": "Enter purchase price",
+  "@purchaseHint": {
+    "description": "Shown in text field hint text"
+  },
+  "dollarFormMessage" : "To keep data integrity, values can't differ by a big margin from the ones provided by the app",
+  "@dollarFormMessage": {
+    "description": "Message shown when the user tries to submit a new value for a dollar type"
+  },
+  "supportMessage" : "Thanks for your support"
 }

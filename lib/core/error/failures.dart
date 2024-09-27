@@ -51,6 +51,6 @@ class PermissionFailure extends Failure{
 }
 
 
-class ImageFailure extends Failure{
-  ImageFailure({super.errorMessage = ErrorMessages.galleryMessageError});
+class NotFoundFailure extends Failure{
+  NotFoundFailure({super.errorMessage = ErrorMessages.notFoundMessageError});
 }

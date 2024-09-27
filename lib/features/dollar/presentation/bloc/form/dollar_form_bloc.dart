@@ -13,11 +13,11 @@ class DollarFormBloc extends Bloc<DollarFormEvent, DollarFormState> {
   DollarFormBloc(this._saveDollar) : super(const DollarFormState()) {
 
     on<ChangeSaleDollar>((event, emit) {
-      emit(state.copyWith(sellPrice: event.text,canSend: event.text!='' || state.buyPrice!=''));
+      emit(state.copyWith(sellPrice: event.text,canSend: event.text.isNumeric() || state.buyPrice.isNumeric()));
     });
 
     on<ChangePurchaseDollar>((event, emit) {
-      emit(state.copyWith(buyPrice: event.text,canSend: event.text!='' || state.sellPrice!=''));
+      emit(state.copyWith(buyPrice: event.text,canSend: event.text.isNumeric() || state.sellPrice.isNumeric()));
     });
 
     on<SendDollar>((event, emit) async {
@@ -33,14 +33,21 @@ class DollarFormBloc extends Bloc<DollarFormEvent, DollarFormState> {
         sellPrice = double.parse(state.sellPrice);
       }
 
+
       final dollar = event.dollar!.copyWith(
         buyPrice: buyPrice,
         sellPrice: sellPrice
       );
 
-      await _saveDollar(dollar: dollar);
+      emit(state.copyWith(loading: true));
 
-      emit(DollarFormSuccess());
+      final saveOrFail = await _saveDollar(dollar: dollar);
+
+      emit(saveOrFail.fold(
+          (error) => DollarFormError(message: error.errorMessage),
+          (ok)    => DollarFormSuccess()
+      ));
+
 
     });
 
