@@ -7,7 +7,6 @@ import '../../../../core/resources/app_resources.dart';
 import '../../../../core/router/router.dart';
 import '../../../../injection_container.dart';
 import '../../../home/presentation/widgets/loading_button.dart';
-import '../../domain/entities/dollar.dart';
 import '../bloc/dollar_bloc.dart';
 import '../bloc/form/dollar_form_bloc.dart';
 

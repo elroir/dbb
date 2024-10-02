@@ -15,9 +15,15 @@ class BankPage extends StatelessWidget {
       body: BlocBuilder<BankBloc, BankState>(
         builder: (context, state) {
           if(state is BankLoaded){
-            return ListView.builder(
-              itemCount: state.banks.length,
-              itemBuilder: (_, i) => BankItem(bank: state.banks[i]),
+            return CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (_,i) =>  BankItem(bank: state.banks[i]),
+                    childCount: state.banks.length
+                  ),
+                )
+              ],
             );
           }
           if(state is BankError){
