@@ -2,7 +2,9 @@ extension StringExtensions on String{
   bool isNumeric () {
     if (isEmpty) return false ;
 
-    final n = num.tryParse(this);
+    final formatted = replaceAll(',', '.');
+
+    final n = num.tryParse(formatted);
 
     return (n == null) ? false : true;
 

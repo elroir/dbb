@@ -27,6 +27,7 @@ class BankItem extends StatelessWidget {
           const SizedBox(height: 10),
           ListView.builder(
             shrinkWrap: true,
+            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: bank.restrictions.length,
             itemBuilder: (_, i) => Card(
