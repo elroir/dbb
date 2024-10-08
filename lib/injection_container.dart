@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 import 'core/http/pocketbase_options.dart';
+import 'core/push_notification/firebase_notification_impl.dart';
+import 'core/push_notification/push_notification_repository.dart';
 import 'features/bank/data/data_sources/bank_local_datasource.dart';
 import 'features/bank/data/data_sources/bank_remote_datasource.dart';
 import 'features/bank/data/repositories/bank_repository_impl.dart';
@@ -15,6 +17,7 @@ import 'features/dollar/domain/use_cases/get_latest_dollars_use_case.dart';
 import 'features/dollar/domain/use_cases/save_dollar_use_case.dart';
 import 'features/home/data/repositories/url_launcher.dart';
 import 'features/home/domain/repositories/url_repository.dart';
+import 'features/home/domain/use_cases/request_notification_permission_use_case.dart';
 
 
 final locator = GetIt.instance;
@@ -23,9 +26,13 @@ void setup() {
   // External
     locator.registerSingleton<PocketBase>(PocketBaseOptions.pb);
     locator.registerSingleton<UrlRepository>(UrlLauncher());
+    locator.registerSingleton<PushNotificationRepository>(FirebaseNotificationImpl());
+
+  //Home
+    locator.registerLazySingleton<RequestNotificationPermission>(() => RequestNotificationPermission(notificationRepository: locator()));
 
 
-  // Bank feature
+    // Bank feature
     locator.registerLazySingleton<BankRemoteDatasource>(() => BankRemoteDatasourceImpl(pb: locator()));
     locator.registerLazySingleton<BankLocalDatasource>(() => BankLocalDatasourceImpl());
     locator.registerLazySingleton<BankRepository>(() => BankRepositoryImpl(remoteDatasource: locator(), localDatasource: locator()));

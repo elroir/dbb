@@ -22,6 +22,9 @@ class BankPage extends StatelessWidget {
                       (_,i) =>  BankItem(bank: state.banks[i]),
                     childCount: state.banks.length
                   ),
+                ),
+                const SliverPadding(
+                  padding: EdgeInsets.only(bottom: 100),
                 )
               ],
             );
