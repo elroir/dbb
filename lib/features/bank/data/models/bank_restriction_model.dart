@@ -11,6 +11,7 @@ class BankRestrictionModel extends BankRestriction{
     required super.frequency,
     required super.amount,
     required super.bankId,
+    super.extra,
     required super.lastUpdate
   });
 
@@ -23,6 +24,7 @@ class BankRestrictionModel extends BankRestriction{
       frequency: json['frequency'],
       amount: json['amount']/1,
       bankId: json['bank_id'],
+      extra: json['extra'],
       lastUpdate: json['created']
     );
   }
@@ -36,6 +38,7 @@ class BankRestrictionModel extends BankRestriction{
         frequency: record.data['frequency'],
         amount: record.data['amount']/1,
         bankId: record.data['bank_id'],
+        extra: record.data['extra'],
         lastUpdate: DateTime.parse(record.created).toLocal()
     );
   }

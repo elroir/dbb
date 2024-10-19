@@ -8,14 +8,15 @@ import '../resources/app_resources.dart';
 part 'text_theme.dart';
 part 'button_theme.dart';
 part 'input_theme.dart';
+part 'chip_theme.dart';
 
 class Themes {
 
   static final ThemeData darkTheme = ThemeData(
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.primary,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.primaryColor,
-        secondary: AppColors.secondaryColor,
+        primary: AppColors.primary,
+        secondary: AppColors.secondary,
         surface: AppColors.backgroundColor,
       ),
       brightness: Brightness.dark,
@@ -30,9 +31,10 @@ class Themes {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.black,
-        selectedItemColor: AppColors.secondaryColor,
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.accentBlack,
       ),
+    chipTheme: ChipTheme.dark,
     cardTheme: const CardTheme(
       color: AppColors.accentBlack
     )

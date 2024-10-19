@@ -5,6 +5,7 @@ class BankRestriction {
   final String currency;
   final String frequency;
   final String bankId;
+  final String extra;
   final double amount;
   final DateTime lastUpdate;
 
@@ -16,6 +17,7 @@ class BankRestriction {
     required this.frequency,
     required this.amount,
     required this.bankId,
+    this.extra = '',
     required this.lastUpdate
   });
 }

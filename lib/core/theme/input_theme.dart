@@ -11,7 +11,7 @@ class InputTheme{
        borderSide: BorderSide(color: Colors.red)
     ),
     errorStyle: TextStyle(color: Colors.red),
-    hintStyle: TextStyle(color: AppColors.primaryColor)
+    hintStyle: TextStyle(color: AppColors.primary)
   );
 
 }

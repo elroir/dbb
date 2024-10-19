@@ -40,7 +40,7 @@ class InfoButton extends StatelessWidget {
             ),
           )
       ),
-      child: const Icon(IconsaxPlusBold.info_circle,color: AppColors.secondaryColor,),
+      child: const Icon(IconsaxPlusBold.info_circle,color: AppColors.secondary,),
     );
   }
 }

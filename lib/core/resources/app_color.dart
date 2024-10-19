@@ -1,8 +1,9 @@
 part of 'app_resources.dart';
 
 class AppColors {
-  static const primaryColor = Color(0xFF00adb5);
-  static const secondaryColor = Color(0xFF00fff5);
+  static const primary = Color(0xFF01eb84);
+  static const primaryAccent = Color(0xFFa6f1bb);
+  static const secondary = Color(0xFF2891fb);
   static const backgroundColor = Color(0xFF222831);
   static const accentBlack = Color(0xFF393e46);
 

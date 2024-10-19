@@ -4,7 +4,7 @@ class ButtonThemeStyle{
 
   static ElevatedButtonThemeData elevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primary,
       foregroundColor: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 15),
       textStyle: const TextStyle(fontWeight: FontWeight.w500),
@@ -28,7 +28,7 @@ class ButtonThemeStyle{
   static OutlinedButtonThemeData outlinedButtonDarkTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 13),
-        foregroundColor: AppColors.secondaryColor,
+        foregroundColor: AppColors.secondary,
         textStyle: const TextStyle(fontWeight: FontWeight.w500),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppBorder.buttonBorderRadius)

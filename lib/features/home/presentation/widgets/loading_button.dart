@@ -37,7 +37,7 @@ class LoadingButton extends StatelessWidget {
                     child: SizedBox(
                         height: 16,
                         width: 16,
-                        child: CircularProgressIndicator(color: AppColors.secondaryColor,strokeWidth: 2,)
+                        child: CircularProgressIndicator(color: AppColors.secondary,strokeWidth: 2,)
                     ),
                   ),
                 )

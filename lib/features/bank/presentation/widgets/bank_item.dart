@@ -4,6 +4,7 @@ import '../../../../core/resources/app_resources.dart';
 import '../../../home/presentation/widgets/updated_text.dart';
 import '../../../home/presentation/widgets/url_chip.dart';
 import '../../domain/entities/bank.dart';
+import 'restriction_card.dart';
 
 class BankItem extends StatelessWidget {
   final Bank bank;
@@ -30,13 +31,7 @@ class BankItem extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: bank.restrictions.length,
-            itemBuilder: (_, i) => Card(
-              child: ListTile(
-                title: Text(bank.restrictions[i].description,maxLines: 2,style: Theme.of(context).textTheme.titleSmall),
-                subtitle: Text(bank.restrictions[i].frequency),
-                trailing: Text('${bank.restrictions[i].currency} ${bank.restrictions[i].amount.floor().toString()}'),
-              ),
-            )
+            itemBuilder: (_, i) => RestrictionCard(restriction: bank.restrictions[i])
           ),
           if(bank.restrictions.isNotEmpty)
             UpdatedText(dateTime: bank.restrictions.first.lastUpdate)
