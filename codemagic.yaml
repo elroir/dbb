@@ -7,7 +7,6 @@ workflows:
       android_signing:
         - dbb
       groups:
-        - keystore_credentials
         - gcloud
       vars:
         PACKAGE_NAME: "com.elroir.dbb"
