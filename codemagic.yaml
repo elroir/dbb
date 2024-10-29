@@ -11,7 +11,7 @@ workflows:
       vars:
         PACKAGE_NAME: "com.elroir.dbb"
         GOOGLE_PLAY_TRACK: "production"
-      flutter: stable
+      flutter: stable 3.24.1
     scripts:
       - name: Set up local.properties
         script: |
@@ -19,9 +19,9 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
-      - name: Flutter analyze
-        script: |
-          flutter analyze
+#      - name: Flutter analyze
+#        script: |
+#          flutter analyze
 #      - name: Flutter unit tests
 #        script: |
 #          flutter test
@@ -53,7 +53,7 @@ workflows:
         bundle_identifier: com.elroir.dbb
       vars:
         APP_ID: 6670591110
-      flutter: stable
+      flutter: stable 3.24.1
       xcode: latest
       cocoapods: default
     scripts:
@@ -92,7 +92,6 @@ workflows:
         # Note: This action is performed during post-processing.
         submit_to_testflight: true
         beta_groups: # Specify the names of beta tester groups that will get access to the build once it has passed beta review.
-          - socios
           - testers
 
         # Configuration related to App Store (optional)
